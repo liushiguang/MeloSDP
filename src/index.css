@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@layer utilities {
+  .filter-yellow {
+    filter: invert(72%) sepia(87%) saturate(485%) hue-rotate(359deg)
+      brightness(106%) contrast(105%);
+  }
+  .filter-gray {
+    filter: grayscale(100%);
+  }
+  .filter-blue {
+    filter: invert(58%) sepia(30%) saturate(3339%) hue-rotate(178deg)
+      brightness(93%) contrast(101%);
+  }
+}
+h1 {
+  font-size: 2.5rem; /* 字体大小 */
+  font-weight: bold; /* 字体粗细 */
+  line-height: 1.2; /* 行高 */
+  margin-bottom: 1rem; /* 底部间距 */
+  /* 可根据需要添加其他样式 */
+}
+
+/* h2 标题样式 */
+h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  /* 可根据需要添加其他样式 */
+}
+
+/* h3 标题样式 */
+h3 {
+  font-size: 1.75rem;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  /* 可根据需要添加其他样式 */
+}
+
+/* h4 标题样式 */
+h4 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  /* 可根据需要添加其他样式 */
+}
+
+/* h5 标题样式 */
+h5 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  /* 可根据需要添加其他样式 */
+}
+
+/* h6 标题样式 */
+h6 {
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  /* 可根据需要添加其他样式 */
+}
