@@ -1,0 +1,156 @@
+.container {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    font-size: 2rem; 
+  }
+  
+  .selection-section {
+    background-color: #f5f5f5;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .section-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.6rem;
+  
+    .label {
+      font-weight: 600;
+      color: #333;
+      font-size: 1.6rem; 
+    }
+  
+    .checkbox-group {
+      display: flex;
+      gap: 2rem;
+  
+      .checkbox-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+  
+        input[type="checkbox"] {
+          accent-color: #3498db; 
+        }
+  
+        span {
+          font-size: 1.5rem;
+          color: #555;
+        }
+      }
+    }
+  
+    select {
+      padding: 0.5rem 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1.5rem;
+      color: #555;
+      background-color: #fff;
+      appearance: none; /* Hide default dropdown arrow */
+      cursor: pointer;
+      transition: border-color 0.3s ease, background-color 0.3s ease;
+      
+      &:focus {
+        border-color: #3498db;
+        background-color: #f0f8ff;
+        outline: none;
+      }
+  
+      /* Custom dropdown arrow */
+      &::-ms-expand {
+        display: none;
+      }
+      
+      /* To style the dropdown arrow in WebKit browsers (Chrome, Safari) */
+      &::after {
+        content: '▼'; /* Custom arrow character */
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.2rem;
+        color: #555;
+        pointer-events: none;
+      }
+    }
+  
+    position: relative; /* Positioning context for custom arrow */
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+  
+    .upload-btn,
+    .test-btn {
+      padding: 0.75rem 1.5rem; 
+      border: none;
+      border-radius: 5px;
+      font-size: 1.3rem; 
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+  
+    .upload-btn {
+      background-color: #ddd;
+      color: #333;
+  
+      &:hover {
+        background-color: #ccc;
+      }
+    }
+  
+    .test-btn {
+      background-color: #3498db;
+      color: #fff;
+  
+      &:hover {
+        background-color: #2980b9;
+      }
+    }
+  }
+  
+  .chart-section {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+    .no-metrics-text {
+      text-align: center;
+      color: #999;
+      font-size: 1.4rem; 
+    }
+  }
+
+
+  .file-upload-label {
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .file-upload-label input[type="file"] {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+  
+  .file-upload-text {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    font-size:  1.3rem;
+  }

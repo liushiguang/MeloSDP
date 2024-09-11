@@ -29,7 +29,6 @@ httpInstance.interceptors.response.use(
     return response.data
   },
   (error) => {
-    // message.error('This is an error message');
     console.log("This is a erro")
     return Promise.reject(error)
   }
