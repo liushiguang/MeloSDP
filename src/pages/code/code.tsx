@@ -93,7 +93,7 @@ const Code: React.FC = () => {
         <div className="button-group">
             <label className="file-upload-label">
               <input type="file" onChange={handleFileChange} />
-              <span className="file-upload-text">选择Python文件</span>
+              <span className="file-upload-text">选择代码文件</span>
             </label>
           <button onClick={handleUploadCode}>上传代码</button>
           <button onClick={handleStartTest}>开始测试</button>
