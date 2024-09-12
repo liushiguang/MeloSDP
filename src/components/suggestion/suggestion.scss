@@ -1,28 +1,35 @@
-
 .code-review-comment {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 16px;
-    padding: 8px;
-    min-width: 800px;
-    margin: 0 auto;
-    
-    h2 {
-      font-size: 1.3rem;
-      color: #333;
-    }
-  
-    .code-block {
-    font-family: 'Courier New', Courier, monospace; // 字体
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  padding: 8px;
+  min-width: 500px;
+  max-width: 850px;
+  margin: 0 auto;
+
+  h2 {
+    font-size: 1.3rem;
+    color: #333;
+  }
+
+  .code-block {
+    font-family: 'Courier New', Courier, monospace; /* 字体 */
     font-size: 24px;
-    white-space: pre-wrap; // 保持源代码的格式
-      padding: 2px;
-      border-radius: 4px;
-      overflow-x: auto;
-      code {
-        display: block;
-        white-space: pre;
-      }
+    white-space: pre-wrap; /* 保持源代码的格式 */
+    padding: 2px;
+    border-radius: 4px;
+    word-wrap: break-word; /* 允许换行 */
+    overflow-x: hidden; /* 隐藏横向滚动条 */
+    max-width: 100%; /* 确保代码块不会超出容器宽度 */
+    
+    code {
+      display: block;
+      word-wrap: break-word; /* 允许换行 */
+      overflow-wrap: break-word; /* 允许换行 */
+    }
+
+    .comment {
+      color: green; /* 绿色标记注释 */
     }
   }
-  
+}

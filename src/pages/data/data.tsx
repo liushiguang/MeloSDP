@@ -74,10 +74,10 @@ const Data: React.FC = () => {
       setAppliedMetrics(sortMetrics(selectedMetrics))
 
     // 模拟获取数据并更新图表
-    //   fetchChartData().then(data => {
-    //   console.log(selectedDLModels,selectedMLModels,sortMetrics(selectedMetrics),selectedType);
-    //   setChartData(data);
-    // });
+      fetchChartData().then(data => {
+      console.log(selectedDLModels,selectedMLModels,sortMetrics(selectedMetrics),selectedType);
+      setChartData(data);
+    });
 
     };
 
