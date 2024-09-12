@@ -1,12 +1,11 @@
-import React, { ChangeEvent, useState ,MouseEvent} from 'react';
+import React, { useState ,MouseEvent} from 'react';
 import EChartsReact from 'echarts-for-react';
 import './data.scss'
-import { message } from 'antd';
 import { dataTest } from '@/apis/dataAPI';
 
 const Metrics = ['AUC', 'Accuracy', 'F1', 'Precision', 'Recall'];
-const DLModels = ['Deep Model 1', 'Deep Model 2', 'Deep Model 3'];
-const MLModels = ['Model 1', 'Model 2', 'Model 3'];
+const DLModels = ['FCFNN', 'CNN'];
+const MLModels = ['SVM', 'RF', 'NBC','KM'];
 
 function sortMetrics(selectedMetrics:string[]) {
   return selectedMetrics.sort((a, b) => Metrics.indexOf(a) - Metrics.indexOf(b));
@@ -21,18 +20,18 @@ const Data: React.FC = () => {
 
     const [appliedMetrics,setAppliedMetrics] = useState<string[]>([]);
   
-    // csv格式文件
-    const [file, setFile] = useState<File | null>(null);
+    // // csv格式文件
+    // const [file, setFile] = useState<File | null>(null);
 
     // 图表数据
     const [chartData, setChartData] = useState<DataTypes[]>([]);
 
     // 选择文件变化
-    const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
-      if (event.target.files && event.target.files[0]) {
-        setFile(event.target.files[0]);
-      }
-    };
+    // const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
+    //   if (event.target.files && event.target.files[0]) {
+    //     setFile(event.target.files[0]);
+    //   }
+    // };
 
     // 处理模型选择变化
     const handleModelChange = (model: string, setSelectedModels: React.Dispatch<React.SetStateAction<string[]>>) => {
@@ -56,13 +55,13 @@ const Data: React.FC = () => {
     // 点击“开始测试”按钮，应用选择的模型和指标
     const handleTestStart = async (event: MouseEvent<HTMLButtonElement>) => {
       event.preventDefault();
-      if(!file){
-        message.error("请先上传数据集")
-        return;
-      }      
+      // if(!file){
+      //   message.error("请先上传数据集")
+      //   return;
+      // }      
 
       const formData = new FormData();
-      formData.append('file', file);
+      // formData.append('file', file);
       formData.append('dlModels', JSON.stringify(selectedDLModels));
       formData.append('mlModels', JSON.stringify(selectedMLModels));
       formData.append('metrics', JSON.stringify(sortMetrics(selectedMetrics)));
@@ -73,11 +72,13 @@ const Data: React.FC = () => {
 
       setAppliedMetrics(sortMetrics(selectedMetrics))
 
+      setChartData(response.data)
+
     // 模拟获取数据并更新图表
-      fetchChartData().then(data => {
-      console.log(selectedDLModels,selectedMLModels,sortMetrics(selectedMetrics),selectedType);
-      setChartData(data);
-    });
+    //   fetchChartData().then(data => {
+    //   console.log(selectedDLModels,selectedMLModels,sortMetrics(selectedMetrics),selectedType);
+    //   setChartData(data);
+    // });
 
     };
 
@@ -90,17 +91,17 @@ const Data: React.FC = () => {
   };
 
     // 上传数据集
-    const handleUploadData = (event: MouseEvent<HTMLButtonElement>) => {
-      event.preventDefault();
-      if (!file) {
-        message.error("请先选择数据集")
-        return;
-      }
-      else
-      {
-        message.success("上传成功~")
-      }
-    };
+    // const handleUploadData = (event: MouseEvent<HTMLButtonElement>) => {
+    //   event.preventDefault();
+    //   if (!file) {
+    //     message.error("请先选择数据集")
+    //     return;
+    //   }
+    //   else
+    //   {
+    //     message.success("上传成功~")
+    //   }
+    // };
   
     // 构建 ECharts 数据
     const getChartOptions = () => {
@@ -211,11 +212,11 @@ const Data: React.FC = () => {
       
             {/* 按钮区域 */}
             <div className="button-group">
-            <label className="file-upload-label">
-              <input type="file" accept=".csv" onChange={handleFileChange} />
-              <span className="file-upload-text">选择CSV文件</span>
-            </label>
-              <button className="upload-btn" onClick={handleUploadData}>上传数据集</button>
+            {/* <label className="file-upload-label">
+              <input type="file" accept=".arff" onChange={handleFileChange} />
+              <span className="file-upload-text">选择数据集文件</span>
+            </label> */}
+              {/* <button className="upload-btn" onClick={handleUploadData}>上传数据集</button> */}
               <button className="test-btn" onClick={handleTestStart}>
                 开始测试
               </button>

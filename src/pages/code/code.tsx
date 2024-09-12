@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import SourceCode from "@/components/sourceCode/sourceCode";
 import Suggestion from "@/components/suggestion/suggestion";
-import './code.scss'; // 添加自定义样式
+import './code.scss'; 
 import { message } from 'antd';
 import { codeTest, suggestionTest } from '@/apis/codeAPI';
 
@@ -82,7 +82,7 @@ const Code: React.FC = () => {
   };
 
     const splitSuggestions = (data: string): string[] => {
-    const regex = /<text>\d+\. Repair suggestion \d+: <\/text>\s*<code>(.*?)<\/code>/gs;
+    const regex = /<code>(.*?)<\/code>/gs;
     const matches = [...data.matchAll(regex)];
     return matches.map(match => match[1].trim());
   };
